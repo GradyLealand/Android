@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tip Calculator</string>
+    <string name="billTextView">Bill Total</string>
+    <string name="defultEditText">0.00</string>
+    <string name="tenTextView">10%</string>
+    <string name="fifteenTextView">15%</string>
+    <string name="twentyTextView">20%</string>
+    <string name="tipTextView">Tip</string>
+    <string name="totalTextView">Total</string>
+    <string name="customTextView">Custom</string>
+    <string name="customTipTextView">eg. 18%</string>
+</resources>
