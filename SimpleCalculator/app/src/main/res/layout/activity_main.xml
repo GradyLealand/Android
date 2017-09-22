@@ -21,7 +21,9 @@
             android:layout_weight="0.24"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:text="@string/num_0"
+            android:textAlignment="textEnd"
+            android:textSize="25sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,28 +36,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_7"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum8"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_8"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum9"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_9"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnPluse"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_add"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -69,28 +75,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_4"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum5"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_5"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum6"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_6"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnSubtract"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_minus"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -104,28 +114,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_1"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_2"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_3"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnMultiply"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_multiply"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -139,28 +153,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_pluse_minus"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnNum0"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/num_0"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnDecimal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_decimal"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnDivide"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="@string/symbol_divide"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -174,21 +192,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1.00"
-                android:text="Button" />
+                android:text="@string/symbol_backspace"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnClear"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1.00"
-                android:text="Button" />
+                android:text="@string/symbol_clear"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnEquals"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1.01"
-                android:text="Button" />
+                android:text="@string/symbole_equals"
+                android:textSize="20sp" />
         </LinearLayout>
 
     </LinearLayout>

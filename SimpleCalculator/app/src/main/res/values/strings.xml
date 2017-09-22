@@ -15,7 +15,7 @@
     <string name="symbol_multiply">X</string>
     <string name="symbol_divide">/</string>
     <string name="symbol_decimal">.</string>
-    <string name="symbol_backspace"><</string>
+    <string name="symbol_backspace">&#60;</string>
     <string name="symbole_equals">=</string>
     <string name="symbol_clear">C</string>
     <string name="symbol_pluse_minus">+/-</string>
