@@ -68,84 +68,93 @@ public class MainActivity extends AppCompatActivity {
                 displayEditText.setText(displayNum);
             }
         });
-//        btnThree.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("3", displayNum);
-//            }
-//        });
-//        btnFour.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnFive.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnSix.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnSeven.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnEight.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnNine.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnZero.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber("1", displayNum);
-//            }
-//        });
-//        btnDecimal.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                calc.appendNumber(".", displayNum);
-//            }
-//        });
-//        btnPluseMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        btnMinus.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        btnMultiply.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
+        btnThree.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("3", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnFour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("4", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnFive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("5", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnSix.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("6", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnSeven.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("7", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnEight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("8", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnNine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("9", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnZero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber("0", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnDecimal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayNum = calc.appendNumber(".", displayNum);
+                displayEditText.setText(displayNum);
+            }
+        });
+        btnPluseMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        btnMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
