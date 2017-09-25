@@ -36,13 +36,20 @@ public class Calculator {
 
     //if a function button is clicked
     public String gatherFunction(String num, String func){
-        //store the curent displayed number in numOne
-        numOne = Double.parseDouble(num);
-        //store the type of function in func
-        modifier = func;
-        //if a function has not been triggered yet set bool to true
-        modEntered = true;
-        return "0";
+        //check to see if a function has already been clicked
+        if(modEntered == false) {
+            //store the curent displayed number in numOne
+            numOne = Double.parseDouble(num);
+            //store the type of function in func
+            modifier = func;
+            //if a function has not been triggered yet set bool to true
+            modEntered = true;
+            return "0";
+        }else{
+            calcTotal(num);
+            modifier = func;
+            return "0";
+        }
     }
 
     //when"=" button is clicked
