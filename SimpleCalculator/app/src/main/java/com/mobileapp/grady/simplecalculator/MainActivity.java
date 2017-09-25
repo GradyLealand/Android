@@ -14,9 +14,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
     //class variables
-    private double numOne;
-    private double numTwo;
-    private double total;
     private String displayNum = "0";
 
     //declare elements
@@ -140,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check to see that no other function has already been entered
 
             }
         });

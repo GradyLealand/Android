@@ -7,6 +7,11 @@ package com.mobileapp.grady.simplecalculator;
  */
 
 public class Calculator {
+    //class variables
+    private double numOne;
+    private double numTwo;
+    private double total;
+    private String modifier;
     public String appendNumber(String appendNum, String origNum){
         //check to see fi the display still reads 0
         if(appendNum.equals(".")){
@@ -24,5 +29,9 @@ public class Calculator {
             origNum = origNum + appendNum;
             return origNum;
         }
+    }//end appendNumber
+
+    public String gatherFunction(String num, String func){
+
     }
 }
