@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.gatherFunction(displayNum, "x");
+                displayNum = calc.gatherFunction(displayNum, "X");
                 displayEditText.setText(displayNum);
             }
         });
@@ -165,7 +165,10 @@ public class MainActivity extends AppCompatActivity {
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                displayNum = calc.calcTotal(displayNum);
+                displayEditText.setText(displayNum);
+                //reset display num
+                displayNum = "0";
             }
         });
         btnClear.setOnClickListener(new View.OnClickListener() {

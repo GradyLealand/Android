@@ -34,15 +34,27 @@ public class Calculator {
     }//end appendNumber
 
     public String gatherFunction(String num, String func){
-        //check to make sure a function ahs not already been clickd
-        if(modEntered == false){
-            numOne = Double.parseDouble(num);
-            modifier = func;
-            modEntered = true;
-            return "0";
-        }//if one has check to see if there is already a number stored
-        else if(modEntered == true){
-            if
+        numOne = Double.parseDouble(num);
+        modifier = func;
+        modEntered = true;
+        return "0";
+    }
+
+    public String calcTotal(String num){
+        numTwo = Double.parseDouble(num);
+        if(modifier.equals("+")){
+            total = numOne + numTwo;
+        }else if(modifier.equals("-")){
+            total = numOne - numTwo;
+        }else if(modifier.equals("/")){
+            total = numOne / numTwo;
+        }else if(modifier.equals("X")){
+            total = numOne * numTwo;
         }
+        //reset numbers
+        numOne = 0;
+        numTwo = 0;
+        String returnNum = Double.toString(total);
+        return returnNum;
     }
 }
