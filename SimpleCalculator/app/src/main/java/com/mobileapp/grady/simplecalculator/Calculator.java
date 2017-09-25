@@ -9,10 +9,7 @@ package com.mobileapp.grady.simplecalculator;
 public class Calculator {
     public String appendNumber(String appendNum, String origNum){
         //check to see fi the display still reads 0
-        if(origNum.equals("0")){
-            origNum = appendNum;
-            return origNum;
-        }else if(appendNum.equals(".")){
+        if(appendNum.equals(".")){
             if(origNum.contains(".")){
                 //do nothing
                 return origNum;
@@ -20,6 +17,9 @@ public class Calculator {
                 origNum = origNum + appendNum;
                 return origNum;
             }
+        }else if(origNum.equals("0")){
+            origNum = appendNum;
+            return origNum;
         }else{
             origNum = origNum + appendNum;
             return origNum;
