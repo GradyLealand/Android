@@ -137,26 +137,29 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //check to see that no other function has already been entered
-
+                displayNum = calc.gatherFunction(displayNum, "+");
+                displayEditText.setText(displayNum);
             }
         });
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                displayNum = calc.gatherFunction(displayNum, "-");
+                displayEditText.setText(displayNum);
             }
         });
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                displayNum = calc.gatherFunction(displayNum, "x");
+                displayEditText.setText(displayNum);
             }
         });
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                displayNum = calc.gatherFunction(displayNum, "/");
+                displayEditText.setText(displayNum);
             }
         });
         btnEquals.setOnClickListener(new View.OnClickListener() {

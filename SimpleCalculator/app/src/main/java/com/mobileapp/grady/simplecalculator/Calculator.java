@@ -8,10 +8,12 @@ package com.mobileapp.grady.simplecalculator;
 
 public class Calculator {
     //class variables
-    private double numOne;
-    private double numTwo;
-    private double total;
-    private String modifier;
+    private double numOne = 0;
+    private double numTwo = 0;
+    private double total = 0;
+    private String modifier = "0";
+    private boolean modEntered = false;
+
     public String appendNumber(String appendNum, String origNum){
         //check to see fi the display still reads 0
         if(appendNum.equals(".")){
@@ -32,6 +34,15 @@ public class Calculator {
     }//end appendNumber
 
     public String gatherFunction(String num, String func){
-
+        //check to make sure a function ahs not already been clickd
+        if(modEntered == false){
+            numOne = Double.parseDouble(num);
+            modifier = func;
+            modEntered = true;
+            return "0";
+        }//if one has check to see if there is already a number stored
+        else if(modEntered == true){
+            if
+        }
     }
 }
