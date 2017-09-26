@@ -1,9 +1,8 @@
-/*
+/**
 *Simple calculator
 *Grady Williams
 *Sept 29, 2017
-*
- */
+*/
 package com.mobileapp.grady.simplecalculator;
 
 import android.support.v7.app.AppCompatActivity;
@@ -131,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
         btnPluseMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                displayNum = calc.inverseNumber(displayNum);
+                displayEditText.setText(displayNum);
             }
         });
         btnAdd.setOnClickListener(new View.OnClickListener() {

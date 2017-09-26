@@ -13,6 +13,7 @@ public class Calculator {
     private double total = 0;
     private String modifier = "0";
     private boolean modEntered = false;
+    private boolean negativeInt = false;
 
     //when a number or decimal button is clicked
     public String appendNumber(String appendNum, String origNum){
@@ -44,12 +45,29 @@ public class Calculator {
             modifier = func;
             //if a function has not been triggered yet set bool to true
             modEntered = true;
+            //reset negativeInt
+            negativeInt = false;
             return "0";
-        }else{
-            calcTotal(num);
+        }else{//a function key was already clicked
+            //make a string to pars and hold and new num one
+            String newNum = calcTotal(num);
+            numOne = Double.parseDouble(newNum);
             modifier = func;
             return "0";
         }
+    }
+
+    //when the "+/-" button is clicked
+    public String inverseNumber(String origNum){
+        //check to see it the number is already a negative
+        if(negativeInt == false){// if not append "-" to the front of the string
+            origNum = "-" + origNum;
+            negativeInt = true;
+        }else{//remove the first char, "-", from the string
+            origNum = origNum.substring(1);
+            negativeInt = false;
+        }
+        return origNum;
     }
 
     //when"=" button is clicked
@@ -60,6 +78,18 @@ public class Calculator {
         }else if(modifier.equals("-")){
             total = numOne - numTwo;
         }else if(modifier.equals("/")){
+            //if you try to divide by zero
+            if(numTwo == 0){
+                //reset numbers
+                numOne = 0;
+                numTwo = 0;
+                //reset booleans
+                modEntered = false;
+                negativeInt = false;
+                //assign total to a string and return it for display
+                String returnNum = "NaN";
+                return returnNum;
+            }
             total = numOne / numTwo;
         }else if(modifier.equals("X")){
             total = numOne * numTwo;
@@ -67,8 +97,9 @@ public class Calculator {
         //reset numbers
         numOne = 0;
         numTwo = 0;
-        //reset function boolean
+        //reset booleans
         modEntered = false;
+        negativeInt = false;
         //assign total to a string and return it for display
         String returnNum = Double.toString(total);
         return returnNum;
