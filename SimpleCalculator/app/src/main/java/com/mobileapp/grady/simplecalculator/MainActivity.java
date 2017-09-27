@@ -14,11 +14,13 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     //class variables
     private String displayNum = "0";
+    private String rollingDisplay = "";
 
     //declare elements
     private EditText displayEditText;
+    private EditText rollingEditText;
 
-    //create an istance of calculator
+    //create an instance of calculator
     Calculator calc = new Calculator();
 
     @Override
@@ -28,102 +30,102 @@ public class MainActivity extends AppCompatActivity {
         //atatch all button id's
         displayEditText = (EditText) findViewById(R.id.editTextDisplayNums);
         //number buttons
-        Button btnOne = (Button) findViewById(R.id.btnNum1);
-        Button btnTwo = (Button) findViewById(R.id.btnNum2);
-        Button btnThree = (Button) findViewById(R.id.btnNum3);
-        Button btnFour = (Button) findViewById(R.id.btnNum4);
-        Button btnFive = (Button) findViewById(R.id.btnNum5);
-        Button btnSix = (Button) findViewById(R.id.btnNum6);
-        Button btnSeven = (Button) findViewById(R.id.btnNum7);
-        Button btnEight = (Button) findViewById(R.id.btnNum8);
-        Button btnNine = (Button) findViewById(R.id.btnNum9);
-        Button btnZero = (Button) findViewById(R.id.btnNum0);
+        final Button btnOne = (Button) findViewById(R.id.btnNum1);
+        final Button btnTwo = (Button) findViewById(R.id.btnNum2);
+        final Button btnThree = (Button) findViewById(R.id.btnNum3);
+        final Button btnFour = (Button) findViewById(R.id.btnNum4);
+        final Button btnFive = (Button) findViewById(R.id.btnNum5);
+        final Button btnSix = (Button) findViewById(R.id.btnNum6);
+        final Button btnSeven = (Button) findViewById(R.id.btnNum7);
+        final Button btnEight = (Button) findViewById(R.id.btnNum8);
+        final Button btnNine = (Button) findViewById(R.id.btnNum9);
+        final Button btnZero = (Button) findViewById(R.id.btnNum0);
         //function buttons
-        Button btnDecimal = (Button) findViewById(R.id.btnDecimal);
-        Button btnBackSpace = (Button) findViewById(R.id.btnBackSpace);
-        Button btnClear = (Button) findViewById(R.id.btnClear);
-        Button btnPluseMinus = (Button) findViewById(R.id.btnNegPos);
-        Button btnAdd = (Button) findViewById(R.id.btnPluse);
-        Button btnMinus = (Button) findViewById(R.id.btnSubtract);
-        Button btnDivide = (Button) findViewById(R.id.btnDivide);
-        Button btnMultiply = (Button) findViewById(R.id.btnMultiply);
-        Button btnEquals = (Button) findViewById(R.id.btnEquals);
+        final Button btnDecimal = (Button) findViewById(R.id.btnDecimal);
+        final Button btnBackSpace = (Button) findViewById(R.id.btnBackSpace);
+        final Button btnClear = (Button) findViewById(R.id.btnClear);
+        final Button btnPluseMinus = (Button) findViewById(R.id.btnNegPos);
+        final Button btnAdd = (Button) findViewById(R.id.btnPluse);
+        final Button btnMinus = (Button) findViewById(R.id.btnSubtract);
+        final Button btnDivide = (Button) findViewById(R.id.btnDivide);
+        final Button btnMultiply = (Button) findViewById(R.id.btnMultiply);
+        final Button btnEquals = (Button) findViewById(R.id.btnEquals);
 
         //create onClickListeners
         btnOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("1", displayNum);
+                displayNum = calc.appendNumber(btnOne.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnTwo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("2", displayNum);
+                displayNum = calc.appendNumber(btnTwo.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnThree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("3", displayNum);
+                displayNum = calc.appendNumber(btnThree.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnFour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("4", displayNum);
+                displayNum = calc.appendNumber(btnFour.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnFive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("5", displayNum);
+                displayNum = calc.appendNumber(btnFive.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnSix.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("6", displayNum);
+                displayNum = calc.appendNumber(btnSix.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnSeven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("7", displayNum);
+                displayNum = calc.appendNumber(btnSeven.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnEight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("8", displayNum);
+                displayNum = calc.appendNumber(btnEight.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnNine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("9", displayNum);
+                displayNum = calc.appendNumber(btnNine.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnZero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber("0", displayNum);
+                displayNum = calc.appendNumber(btnZero.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
         btnDecimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.appendNumber(".", displayNum);
+                displayNum = calc.appendNumber(btnDecimal.getText().toString(), displayNum);
                 displayEditText.setText(displayNum);
             }
         });
@@ -137,28 +139,28 @@ public class MainActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.gatherFunction(displayNum, "+");
+                displayNum = calc.gatherFunction(displayNum, btnAdd.getText().toString());
                 displayEditText.setText(displayNum);
             }
         });
         btnMinus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.gatherFunction(displayNum, "-");
+                displayNum = calc.gatherFunction(displayNum, btnMinus.getText().toString());
                 displayEditText.setText(displayNum);
             }
         });
         btnMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.gatherFunction(displayNum, "X");
+                displayNum = calc.gatherFunction(displayNum, btnMultiply.getText().toString());
                 displayEditText.setText(displayNum);
             }
         });
         btnDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                displayNum = calc.gatherFunction(displayNum, "/");
+                displayNum = calc.gatherFunction(displayNum, btnDivide.getText().toString());
                 displayEditText.setText(displayNum);
             }
         });
