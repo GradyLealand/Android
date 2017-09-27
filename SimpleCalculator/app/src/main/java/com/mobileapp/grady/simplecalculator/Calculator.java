@@ -15,11 +15,14 @@ public class Calculator {
     private boolean modEntered = false;
     private boolean negativeInt = false;
     private boolean solutionHeld = false;
+    private boolean numEntered = true;
 
     //when a number or decimal button is clicked
     public String appendNumber(String appendNum, String origNum){
+        //tell the program a number has been entered
+        numEntered = true;
         //check for rolling math
-        if (solutionHeld = true){
+        if (solutionHeld == true){
             origNum = "0";
             solutionHeld = false;
         }
@@ -43,28 +46,53 @@ public class Calculator {
 
     //if a function button is clicked
     public String gatherFunction(String num, String func){
-        //check to see if a function has already been clicked
-        if(modEntered == false) {
-            //store the curent displayed number in numOne
-            numOne = Double.parseDouble(num);
-            //store the type of function in func
-            modifier = func;
-            //if a function has not been triggered yet set bool to true
-            modEntered = true;
-            //reset negativeInt
-            negativeInt = false;
-            return "0";
-        }else{//a function key was already clicked
-            //make a string to pars and hold and new num one
-            String newNum = calcTotal(num);
-            numOne = Double.parseDouble(newNum);
-            modifier = func;
-            return "0";
+        if(numEntered == true) {
+            //check to see if a function has already been clicked
+            if (!modEntered) {
+                //store the curent displayed number in numOne
+                numOne = Double.parseDouble(num);
+                //store the type of function in func
+                modifier = func;
+                //if a function has not been triggered yet set bool to true
+                modEntered = true;
+                //reset negativeInt
+                negativeInt = false;
+                solutionHeld = true;
+                //tell the program it will need to enter another number
+                numEntered = false;
+                return num;
+            } else {//a function key was already clicked
+                //make a string to pars and hold and new num one
+                String newNum = calcTotal(num);
+                numOne = Double.parseDouble(newNum);
+                modifier = func;
+                //make sure the program still knows that a mod was entered
+                modEntered = true;
+                //tell the program it will need to enter another number
+                numEntered = false;
+                return newNum;
+            }
+        }else{
+            return num;
         }
     }
 
     //when the "+/-" button is clicked
     public String inverseNumber(String origNum){
+        //check to see if only a 0 is present
+        if(origNum.equals("0")){
+            return origNum;
+        }else if(origNum.charAt(0) == '0'){
+            boolean allZero = true;
+            for(int i = 2; i < origNum.length(); i++){
+                if (origNum.charAt(i) != '0'){
+                    allZero = false;
+                }
+            }
+            if(allZero == true){
+                return origNum;
+            }
+        }
         //check to see it the number is already a negative
         if(negativeInt == false){// if not append "-" to the front of the string
             origNum = "-" + origNum;
@@ -103,7 +131,7 @@ public class Calculator {
 
         }
         //reset numbers
-        numOne = 0;
+        numOne = total;
         numTwo = 0;
         //reset booleans
         modEntered = false;

@@ -2,6 +2,7 @@
 *Simple calculator
 *Grady Williams
 *Sept 29, 2017
+ *
 *https://icons8.com/icon/43502/Calculator" Calculator icon credits
  */
 
