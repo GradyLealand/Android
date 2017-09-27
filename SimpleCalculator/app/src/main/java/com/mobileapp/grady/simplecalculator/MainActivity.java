@@ -2,7 +2,9 @@
 *Simple calculator
 *Grady Williams
 *Sept 29, 2017
-*/
+*https://icons8.com/icon/43502/Calculator" Calculator icon credits
+ */
+
 package com.mobileapp.grady.simplecalculator;
 
 import android.support.v7.app.AppCompatActivity;
@@ -14,11 +16,9 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     //class variables
     private String displayNum = "0";
-    private String rollingDisplay = "";
 
     //declare elements
     private EditText displayEditText;
-    private EditText rollingEditText;
 
     //create an instance of calculator
     Calculator calc = new Calculator();
