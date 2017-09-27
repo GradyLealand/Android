@@ -14,9 +14,15 @@ public class Calculator {
     private String modifier = "0";
     private boolean modEntered = false;
     private boolean negativeInt = false;
+    private boolean solutionHeld = false;
 
     //when a number or decimal button is clicked
     public String appendNumber(String appendNum, String origNum){
+        //check for rolling math
+        if (solutionHeld = true){
+            origNum = "0";
+            solutionHeld = false;
+        }
         //check to see fi the display still reads 0
         if(appendNum.equals(".")){
             if(origNum.contains(".")){
@@ -88,11 +94,13 @@ public class Calculator {
                 negativeInt = false;
                 //assign total to a string and return it for display
                 String returnNum = "NaN";
+                solutionHeld = true;
                 return returnNum;
             }
             total = numOne / numTwo;
         }else if(modifier.equals("X")){
             total = numOne * numTwo;
+
         }
         //reset numbers
         numOne = 0;
@@ -100,6 +108,7 @@ public class Calculator {
         //reset booleans
         modEntered = false;
         negativeInt = false;
+        solutionHeld = true;
         //assign total to a string and return it for display
         String returnNum = Double.toString(total);
         return returnNum;
