@@ -15,20 +15,10 @@
         tools:layout_editor_absoluteY="8dp">
 
         <EditText
-            android:id="@+id/editTextRollingMath"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:enabled="false"
-            android:inputType="textPersonName"
-            android:text="@string/num_0"
-            android:textAlignment="textEnd" />
-
-        <EditText
             android:id="@+id/editTextDisplayNums"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.21"
+            android:layout_weight="0.25"
             android:editable="false"
             android:ems="10"
             android:enabled="false"
