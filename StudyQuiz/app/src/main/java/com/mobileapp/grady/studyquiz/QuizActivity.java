@@ -11,7 +11,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
-    private TextView mainDisplay;
+
+    private TextView mainDisplay, disAnsA, disAnsB, disAnsC, disAnsD;
     QuizTools tools = new QuizTools();
     String mySTring;
 
@@ -20,10 +21,13 @@ public class QuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         TextView mainDisplay = (TextView)findViewById(R.id.tvDisplay);
+        TextView disAnsA = (TextView)findViewById(R.id.tvAnswerA);
+        TextView disAnsB = (TextView)findViewById(R.id.tvAnswerB);
+        TextView disAnsC = (TextView)findViewById(R.id.tvAnswerC);
+        TextView disAnsD = (TextView)findViewById(R.id.tvAnswerD);
         InputStream is = getResources().openRawResource(R.raw.quiz_questions);
 
         ArrayList<String> quizArray = tools.readFile(is);
-
         System.out.print(quizArray);
 
     }

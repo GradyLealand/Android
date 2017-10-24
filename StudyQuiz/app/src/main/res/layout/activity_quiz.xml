@@ -11,18 +11,23 @@
         android:layout_width="395dp"
         android:layout_height="587dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"
-        >
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/tvDisplay"
             android:layout_width="match_parent"
             android:layout_height="123dp"
-            android:textAlignment="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
             android:background="@android:color/white"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="bold"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="2dp" />
 
@@ -30,8 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:layout_editor_absoluteX="4dp"
-            tools:layout_editor_absoluteY="66dp"
-            >
+            tools:layout_editor_absoluteY="66dp">
 
             <TableRow
                 android:layout_width="match_parent"
@@ -48,11 +52,11 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDefinitionOne"
+                    android:id="@+id/tvAnswerA"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
                     android:textAlignment="center"
-                    android:textSize="14sp"
+                    android:textSize="20sp"
                     android:textStyle="bold" />
 
             </TableRow>
@@ -72,7 +76,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDefinitionTwo"
+                    android:id="@+id/tvAnswerB"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
                     android:textAlignment="center" />
@@ -93,7 +97,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDefinitionThree"
+                    android:id="@+id/tvAnswerC"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
                     android:textAlignment="center" />
@@ -114,7 +118,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textViewDefinitionTwo"
+                    android:id="@+id/tvAnswerD"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
                     android:textAlignment="center" />
