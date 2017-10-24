@@ -1,10 +1,12 @@
 package com.mobileapp.grady.studyquiz;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,19 +15,26 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
-
+    //answers tht each button will return
+    private final int ANSWER_A = 1;
+    private final int ANSWER_B = 2;
+    private final int ANSWER_C = 3;
+    private final int ANSWER_D = 4;
+    //declare elements
     private TextView mainDisplay, disAnsA, disAnsB, disAnsC, disAnsD;
     private Button btnA, btnB, btnC, btnD;
+    //instance QuizTools
     QuizTools tools = new QuizTools();
-    String mySTring;
+    //create "other" class variables
     String[] quizQuestion = new String[5];
+    int round = 1;// start at round and update each question so the game knows when to stop
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
         mainDisplay = (TextView)findViewById(R.id.tvDisplay);
-        //atatch elements
+        //attach elements
         disAnsA = (TextView)findViewById(R.id.tvAnswerA);
         disAnsB = (TextView)findViewById(R.id.tvAnswerB);
         disAnsC = (TextView)findViewById(R.id.tvAnswerC);
@@ -46,36 +55,89 @@ public class QuizActivity extends AppCompatActivity {
         btnA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check to see if the answer is correct
+                boolean correct = tools.checkCorrect(ANSWER_A);
+                if (correct){
+                    Toast.makeText(getBaseContext(),"CORRECT!!!!",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"wrong :(",Toast.LENGTH_SHORT).show();
+                }
                 //get a new question
-                quizQuestion = tools.makeQuizArray();
-                populateQuiz(quizQuestion);
+                if (round < 10){
+                    quizQuestion = tools.makeQuizArray();
+                    populateQuiz(quizQuestion);
+                    round++;
+                }else {
+                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
+                    startActivity(score);
+                }
+
             }
         });
 
         btnB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check to see if the answer is correct
+                boolean correct = tools.checkCorrect(ANSWER_B);
+                if (correct){
+                    Toast.makeText(getBaseContext(),"CORRECT!!!!",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"wrong :(",Toast.LENGTH_SHORT).show();
+                }
                 //get a new question
-                quizQuestion = tools.makeQuizArray();
-                populateQuiz(quizQuestion);
+                if (round < 10){
+                    quizQuestion = tools.makeQuizArray();
+                    populateQuiz(quizQuestion);
+                    round++;
+                }else {
+                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
+                    startActivity(score);
+                }
             }
         });
 
         btnC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check to see if the answer is correct
+                boolean correct = tools.checkCorrect(ANSWER_C);
+                if (correct){
+                    Toast.makeText(getBaseContext(),"CORRECT!!!!",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"wrong :(",Toast.LENGTH_SHORT).show();
+                }
                 //get a new question
-                quizQuestion = tools.makeQuizArray();
-                populateQuiz(quizQuestion);
+                if (round < 10){
+                    quizQuestion = tools.makeQuizArray();
+                    populateQuiz(quizQuestion);
+                    round++;
+                }else {
+                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
+                    startActivity(score);
+                }
             }
         });
 
         btnD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //check to see if the answer is correct
+                boolean correct = tools.checkCorrect(ANSWER_D);
+                if (correct){
+                    Toast.makeText(getBaseContext(),"CORRECT!!!!",Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getBaseContext(),"wrong :(",Toast.LENGTH_SHORT).show();
+                }
                 //get a new question
-                quizQuestion = tools.makeQuizArray();
-                populateQuiz(quizQuestion);
+                if (round < 10){
+                    quizQuestion = tools.makeQuizArray();
+                    populateQuiz(quizQuestion);
+                    round++;
+                }else {
+                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
+                    startActivity(score);
+                }
             }
         });
     }

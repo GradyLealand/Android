@@ -1,6 +1,8 @@
 package com.mobileapp.grady.studyquiz;
 
+import android.content.Context;
 import android.content.res.Resources;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +22,10 @@ public class QuizTools {
     private HashMap<String, String> definitionMap = new HashMap<String, String>();
     private ArrayList<String> definitionsList;
     private ArrayList<String> answersList = new ArrayList<String>();
-    Random ran = new Random();
+    private Random ran = new Random();
+    //a int to hold the index of the corect answer to be returned to the quizActivity
+    private int hideAnswer = 0;
+    private int correctAnswer = 0;//stores how many correct answers the user has made
 
 
     //reads the quiz file
@@ -48,7 +53,7 @@ public class QuizTools {
         //make the keypairs ArrayList;
         makeKeyPairs();
         return quizArray;
-    }
+    }//end readFile
 
     //put the string into an array seperating at the |'s
     public ArrayList<String> parseToArray(String myString){
@@ -71,14 +76,15 @@ public class QuizTools {
 
             answersList.add(definitionMap.get(String.valueOf(definitionsList.get(i))));
         }
-    }
+    }//end makeKeyPairs
+
     //create questions array
     String[] makeQuizArray(){
         String[] strArray = new String[5];
         //pick a random definition
         int defNum = ran.nextInt(definitionsList.size());
         //get a random position for the correct answer
-        int hideAnswer = ran.nextInt(4) + 1; //make it be 1-4
+        hideAnswer = ran.nextInt(4) + 1; //make it be 1-4
         //set the first index of the array to the random definition
         strArray[0] = String.valueOf(definitionsList.get(defNum));
         //start at index 1
@@ -111,18 +117,25 @@ public class QuizTools {
                             //if it is equal to the correct answer flag as false
                             check = false;
                         }
-                    }
-                }
+                    }//end inner for loop
+                }//end inner while loop
                 //if it is not equal to the corect answer or any index of the array add to array
                 strArray[i] = String.valueOf(answersList.get(wrong));
             }
-        }
+        }//end outer for loop
         //remove the definition form the list so it cant be guessed again
         definitionsList.remove(defNum);
         return strArray;
-    }
+    }//end makeQuizArray
 
-
-
-
+    //check if the answer is correct or not
+    public boolean checkCorrect(int guess){
+        if (guess == hideAnswer){
+            //add to the correct number
+            correctAnswer ++;
+            return true;
+        }else{
+            return false;
+        }
+    }//end check correct
 }
