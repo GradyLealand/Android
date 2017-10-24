@@ -17,7 +17,9 @@ import java.util.Random;
 
 public class QuizTools {
     private HashMap<String, String> definitionMap = new HashMap<String, String>();
-    private ArrayList<String> definitions = new ArrayList<String>();
+    private ArrayList<String> definitionsList = new ArrayList<String>();
+    private ArrayList<String> answersList;
+    Random ran = new Random();
 
 
     //reads the quiz file
@@ -37,12 +39,13 @@ public class QuizTools {
             e.printStackTrace();
         }
         //convert to a string then return it.
-        quizString =fullFile.toString();
-        //add the String to an array list and then put that arraylist into a hashmap
+        quizString = fullFile.toString();
+        //add the String to an array list and then put that ArrayList into a HashMap
         quizArray = parseToArray(quizString);
         toHash(quizArray);
-        // add all the definitions into an Array list so they can be picked form and removed
-        definitions = createDefinitionsList(quizArray);
+        answersList = new ArrayList<String>(definitionMap.keySet());
+        //make the keypairs ArrayList;
+        makeKeyPairs();
         return quizArray;
     }
 
@@ -54,42 +57,34 @@ public class QuizTools {
 
     //populate hash maps
     void toHash(ArrayList list){
+        //a seperate key value since the look is incrementing by 2
         //loop through the array in increments of 2
         for(int i = 0; i < list.size(); i += 2){
-            // place i in the key and i + 1 in the value to represent (definition, phrase)
-            definitionMap.put(String.valueOf(list.get(i)), String.valueOf(list.get(i + 1)));
+            definitionMap.put(String.valueOf(list.get(i + 1)), String.valueOf(list.get(i)));
         }
     }//end toHash
 
-    //create an arraylist of only the definitions
-    ArrayList<String> createDefinitionsList(ArrayList<String> disect){
-        ArrayList<String> list = new ArrayList<String>();
-        for(int i = 0; i < disect.size(); i += 2){
-            list.add(String.valueOf(disect.get(i)));
+    //populate array lists
+    void makeKeyPairs(){
+        for(int i = 0; i < answersList.size(); i++){
+
+            definitionsList.add(definitionMap.get(String.valueOf(answersList.get(i))));
         }
-        return list;
-    }//end createDefinitionsList
-
-    //return an array of the definition , 4 possible answers, and the answer key
-    ArrayList<String> buildQuestion(){
-        ArrayList<String> questionList = new ArrayList<String>();
-        //get a random number between 0 and the length of the remaining definitions
-        Random ran = new Random();
-        int ranNum = ran.nextInt(definitions.size());
-        int hideAnswer = ran.nextInt(4);
-        //get a random definition
-        String question = String.valueOf(definitions.get(ranNum));
-        //remove it form the list so it can not be used again
-        definitions.remove(ranNum);
-        //put the definition and 3 random phrases into the list
-        questionList.add(question);
-        for (int i = 1; i < 6; i++){
-            strin
-        }
-
-
-
-        return questionList;
     }
+    //create questions array
+    String[] makeQuizArray(){
+        String[] strArray = new String[5];
+        //pick a random definition
+        int defNum = ran.nextInt(answersList.size());
+        strArray[0] = String.valueOf(definitionMap.get(String.valueOf(answersList.get(defNum))));
+        strArray[1] = String.valueOf(answersList.get(defNum));
+        for(int i = 2; i < strArray.length; i++){
+            strArray[i] = String.valueOf(answersList.get(i));
+        }
+        return strArray;
+    }
+
+
+
 
 }

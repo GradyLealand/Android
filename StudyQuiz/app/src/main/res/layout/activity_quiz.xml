@@ -28,6 +28,7 @@
             android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:gravity="center"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="2dp" />
 
@@ -57,7 +58,8 @@
                     android:layout_height="match_parent"
                     android:textAlignment="center"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:gravity="center"/>
 
             </TableRow>
 
@@ -79,7 +81,10 @@
                     android:id="@+id/tvAnswerB"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
             </TableRow>
 
             <TableRow
@@ -100,7 +105,10 @@
                     android:id="@+id/tvAnswerC"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
             </TableRow>
 
             <TableRow
@@ -121,7 +129,10 @@
                     android:id="@+id/tvAnswerD"
                     android:layout_width="315dp"
                     android:layout_height="match_parent"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"/>
             </TableRow>
         </TableLayout>
 
