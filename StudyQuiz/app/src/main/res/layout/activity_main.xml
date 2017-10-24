@@ -8,41 +8,55 @@
     tools:context="com.mobileapp.grady.studyquiz.MainActivity">
 
 
-    <TextView
-        android:id="@+id/lblMainTitle"
-        android:layout_width="234dp"
-        android:layout_height="34dp"
-        android:text="@string/title_main_activity"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="32dp" />
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="395dp"
+        android:layout_height="587dp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
 
-    <TextView
-        android:id="@+id/lblNameTitle"
-        android:layout_width="127dp"
-        android:layout_height="19dp"
-        android:text="@string/title_name_input"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="124dp" />
+        <Button
+            android:id="@+id/btnNameSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_name_submit"
+            tools:layout_editor_absoluteX="146dp"
+            tools:layout_editor_absoluteY="326dp" />
 
-    <EditText
-        android:id="@+id/editTextNameInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textAlignment="center"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="156dp" />
+        <TextView
+            android:id="@+id/lblMainTitle"
+            android:layout_width="234dp"
+            android:layout_height="34dp"
+            android:text="@string/title_main_activity"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="80dp"
+            android:layout_marginBottom="77dp"
+            app:layout_constraintBottom_toTopOf="@+id/lblNameTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintVertical_bias="1.0" />
 
-    <Button
-        android:id="@+id/btnNameSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btn_name_submit"
-        tools:layout_editor_absoluteX="146dp"
-        tools:layout_editor_absoluteY="229dp" />
+        <TextView
+            android:id="@+id/lblNameTitle"
+            android:layout_width="127dp"
+            android:layout_height="19dp"
+            android:text="@string/title_name_input"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="134dp"
+            android:layout_marginBottom="37dp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNameInput" />
+
+        <EditText
+            android:id="@+id/editTextNameInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="91dp"
+            android:layout_marginBottom="51dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnNameSubmit" />
+    </android.support.constraint.ConstraintLayout>
+
 </android.support.constraint.ConstraintLayout>
