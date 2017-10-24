@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.StringTokenizer;
 
 /**
  * Created by Grady on 2017-10-23.
@@ -76,11 +77,45 @@ public class QuizTools {
         String[] strArray = new String[5];
         //pick a random definition
         int defNum = ran.nextInt(definitionsList.size());
+        //get a random position for the correct answer
+        int hideAnswer = ran.nextInt(4) + 1; //make it be 1-4
         //set the first index of the array to the random definition
         strArray[0] = String.valueOf(definitionsList.get(defNum));
-        strArray[1] = String.valueOf(definitionMap.get(String.valueOf(definitionsList.get(defNum))));
-        for(int i = 2; i < strArray.length; i++){
-            strArray[i] = String.valueOf(answersList.get(i));
+        //start at index 1
+        for(int i = 1; i < strArray.length; i++){
+            //declare the number that will be randomized outside of the while
+            // loop so it can be accessed at the end
+            int wrong = 0;
+            if(i == hideAnswer){
+                strArray[i] = String.valueOf(definitionMap.get(String.valueOf(definitionsList.get(defNum))));
+            }else{
+                //while the random wrong answer is equal to the answer or an already placed wrong
+                boolean check = false;
+                while(!check){
+                    //set true
+                    check = true;
+                    //roll to get a random wrong answer
+                    wrong = ran.nextInt(answersList.size());
+                    //loop through the list to see if it has an identical match
+                    for(int j = 1; j <5; j++){
+                        if(strArray[j]!=null){
+                            if(strArray[j].equals(String.valueOf(answersList.get(wrong)))){
+                                //if equal set check to false
+                                check = false;
+                            }
+                        //check to see if the term at "wrong" (from the answersList)
+                            // is the same as the answer (from the hashmap)
+                        }else if(String.valueOf(answersList.get(wrong))
+                                .equals(String.valueOf(definitionMap.get(String
+                                        .valueOf(definitionsList.get(defNum)))))){
+                            //if it is equal to the correct answer flag as false
+                            check = false;
+                        }
+                    }
+                }
+                //if it is not equal to the corect answer or any index of the array add to array
+                strArray[i] = String.valueOf(answersList.get(wrong));
+            }
         }
         //remove the definition form the list so it cant be guessed again
         definitionsList.remove(defNum);
