@@ -15,8 +15,7 @@ import java.util.HashMap;
  */
 
 public class QuizTools {
-    private HashMap<Integer, String> definitionMap = new HashMap<Integer, String>();
-    private HashMap<Integer, String> phraseMap = new HashMap<Integer, String>();
+    private HashMap<String, String> definitionMap = new HashMap<String, String>();
 
 
     //reads the quiz file
@@ -39,7 +38,6 @@ public class QuizTools {
         quizString =fullFile.toString();
         quizArray = parseToArray(quizString);
         toHash(quizArray);
-        System.out.println(phraseMap.toString());
         return quizArray;
     }
 
@@ -51,32 +49,13 @@ public class QuizTools {
 
     //populate hash maps
     void toHash(ArrayList list){
-        //the value to assign to key
-        int keyValue = 1;
-        for(int i = 0; i < list.size(); i++){
-            //if even add to the definitions map
-            if(i % 2 == 0){
-                definitionMap.put(keyValue, String.valueOf(list.get(i)));
-            }else{
-                phraseMap.put(keyValue, String.valueOf(list.get(i)));
-                keyValue++;
-            }
+        //loop through the array in increments of 2
+        for(int i = 0; i < list.size(); i += 2){
+            // place i in the key and i + 1 in the value to represent (definition, phrase)
+            definitionMap.put(String.valueOf(list.get(i)), String.valueOf(list.get(i + 1)));
+
         }
     }
 
-    public HashMap<Integer, String> getDefinitionMap() {
-        return definitionMap;
-    }
 
-    public void setDefinitionMap(HashMap<Integer, String> definitionMap) {
-        this.definitionMap = definitionMap;
-    }
-
-    public HashMap<Integer, String> getPhraseMap() {
-        return phraseMap;
-    }
-
-    public void setPhraseMap(HashMap<Integer, String> phraseMap) {
-        this.phraseMap = phraseMap;
-    }
 }
