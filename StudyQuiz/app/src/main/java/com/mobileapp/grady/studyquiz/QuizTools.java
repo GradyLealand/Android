@@ -17,8 +17,8 @@ import java.util.Random;
 
 public class QuizTools {
     private HashMap<String, String> definitionMap = new HashMap<String, String>();
-    private ArrayList<String> definitionsList = new ArrayList<String>();
-    private ArrayList<String> answersList;
+    private ArrayList<String> definitionsList;
+    private ArrayList<String> answersList = new ArrayList<String>();
     Random ran = new Random();
 
 
@@ -43,7 +43,7 @@ public class QuizTools {
         //add the String to an array list and then put that ArrayList into a HashMap
         quizArray = parseToArray(quizString);
         toHash(quizArray);
-        answersList = new ArrayList<String>(definitionMap.keySet());
+        definitionsList = new ArrayList<String>(definitionMap.keySet());
         //make the keypairs ArrayList;
         makeKeyPairs();
         return quizArray;
@@ -60,27 +60,30 @@ public class QuizTools {
         //a seperate key value since the look is incrementing by 2
         //loop through the array in increments of 2
         for(int i = 0; i < list.size(); i += 2){
-            definitionMap.put(String.valueOf(list.get(i + 1)), String.valueOf(list.get(i)));
+            definitionMap.put(String.valueOf(list.get(i)), String.valueOf(list.get(i + 1)));
         }
     }//end toHash
 
     //populate array lists
     void makeKeyPairs(){
-        for(int i = 0; i < answersList.size(); i++){
+        for(int i = 0; i < definitionsList.size(); i++){
 
-            definitionsList.add(definitionMap.get(String.valueOf(answersList.get(i))));
+            answersList.add(definitionMap.get(String.valueOf(definitionsList.get(i))));
         }
     }
     //create questions array
     String[] makeQuizArray(){
         String[] strArray = new String[5];
         //pick a random definition
-        int defNum = ran.nextInt(answersList.size());
-        strArray[0] = String.valueOf(definitionMap.get(String.valueOf(answersList.get(defNum))));
-        strArray[1] = String.valueOf(answersList.get(defNum));
+        int defNum = ran.nextInt(definitionsList.size());
+        //set the first index of the array to the random definition
+        strArray[0] = String.valueOf(definitionsList.get(defNum));
+        strArray[1] = String.valueOf(definitionMap.get(String.valueOf(definitionsList.get(defNum))));
         for(int i = 2; i < strArray.length; i++){
             strArray[i] = String.valueOf(answersList.get(i));
         }
+        //remove the definition form the list so it cant be guessed again
+        definitionsList.remove(defNum);
         return strArray;
     }
 
