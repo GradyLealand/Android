@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Button btnStartQuiz;
@@ -22,10 +23,15 @@ public class MainActivity extends AppCompatActivity {
         btnStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent quiz = new Intent(MainActivity.this, QuizActivity.class);
-                String passName = String.valueOf(userNameInput.getText());
-                quiz.putExtra("userName", passName);//pass through the user name
-                startActivity(quiz);
+                if(userNameInput.getText().length() > 0){
+                    Intent quiz = new Intent(MainActivity.this, QuizActivity.class);
+                    String passName = String.valueOf(userNameInput.getText());
+                    quiz.putExtra("userName", passName);//pass through the user name
+                    startActivity(quiz);
+                }else{
+                    Toast.makeText(getBaseContext(),"Enter A Name",Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

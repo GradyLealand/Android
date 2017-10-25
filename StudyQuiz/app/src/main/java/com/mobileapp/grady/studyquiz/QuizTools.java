@@ -119,7 +119,7 @@ public class QuizTools {
                         }
                     }//end inner for loop
                 }//end inner while loop
-                //if it is not equal to the corect answer or any index of the array add to array
+                //if it is not equal to the correct answer or any index of the array add to array
                 strArray[i] = String.valueOf(answersList.get(wrong));
             }
         }//end outer for loop
