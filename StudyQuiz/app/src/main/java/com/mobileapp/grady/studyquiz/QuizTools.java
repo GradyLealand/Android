@@ -2,6 +2,7 @@ package com.mobileapp.grady.studyquiz;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -42,7 +43,7 @@ public class QuizTools {
                 fullFile.append(line);
             }
         }catch (IOException e){
-            e.printStackTrace();
+            Log.e("Error", "Problem reading file from /res/raw");
         }
         //convert to a string then return it.
         quizString = fullFile.toString();
