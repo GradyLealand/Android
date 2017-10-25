@@ -21,7 +21,7 @@ public class QuizActivity extends AppCompatActivity {
     private final int ANSWER_C = 3;
     private final int ANSWER_D = 4;
     //declare elements
-    private TextView mainDisplay, disAnsA, disAnsB, disAnsC, disAnsD;
+    private TextView mainDisplay, disAnsA, disAnsB, disAnsC, disAnsD,disFinalScore;
     private Button btnA, btnB, btnC, btnD;
     //instance QuizTools
     QuizTools tools = new QuizTools();
@@ -39,6 +39,7 @@ public class QuizActivity extends AppCompatActivity {
         disAnsB = (TextView)findViewById(R.id.tvAnswerB);
         disAnsC = (TextView)findViewById(R.id.tvAnswerC);
         disAnsD = (TextView)findViewById(R.id.tvAnswerD);
+        disFinalScore = (TextView)findViewById(R.id.tvFinalScore);
         btnA = (Button)findViewById(R.id.btnAnswerA);
         btnB = (Button)findViewById(R.id.btnAnswerB);
         btnC = (Button)findViewById(R.id.btnAnswerC);
@@ -68,8 +69,12 @@ public class QuizActivity extends AppCompatActivity {
                     populateQuiz(quizQuestion);
                     round++;
                 }else {
-                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
-                    startActivity(score);
+                    Intent myIntent = getIntent();
+                    String userName = myIntent.getStringExtra("userName");
+                    disFinalScore.setText(userName + " Final Score: " + tools.getCorrectAnswer()
+                            + "/10");
+                    //disable all buttons
+                    disableButtons();
                 }
 
             }
@@ -91,8 +96,12 @@ public class QuizActivity extends AppCompatActivity {
                     populateQuiz(quizQuestion);
                     round++;
                 }else {
-                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
-                    startActivity(score);
+                    Intent myIntent = getIntent();
+                    String userName = myIntent.getStringExtra("userName");
+                    disFinalScore.setText(userName + " Final Score: " + tools.getCorrectAnswer()
+                            + "/10");
+                    //disable all buttons
+                    disableButtons();
                 }
             }
         });
@@ -113,8 +122,12 @@ public class QuizActivity extends AppCompatActivity {
                     populateQuiz(quizQuestion);
                     round++;
                 }else {
-                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
-                    startActivity(score);
+                    Intent myIntent = getIntent();
+                    String userName = myIntent.getStringExtra("userName");
+                    disFinalScore.setText(userName + " Final Score: " + tools.getCorrectAnswer()
+                            + "/10");
+                    //disable all buttons
+                    disableButtons();
                 }
             }
         });
@@ -135,8 +148,12 @@ public class QuizActivity extends AppCompatActivity {
                     populateQuiz(quizQuestion);
                     round++;
                 }else {
-                    Intent score = new Intent(QuizActivity.this, ScoreActivity.class);
-                    startActivity(score);
+                    Intent myIntent = getIntent();
+                    String userName = myIntent.getStringExtra("userName");
+                    disFinalScore.setText(userName + " Final Score: " + tools.getCorrectAnswer()
+                            + "/10");
+                    //disable all buttons
+                    disableButtons();
                 }
             }
         });
@@ -149,6 +166,14 @@ public class QuizActivity extends AppCompatActivity {
         disAnsC.setText(myArray[3]);
         disAnsD.setText(myArray[4]);
 
+    }
+
+    //disable all buttons when the final question is answered
+    public void disableButtons(){
+        btnA.setEnabled(false);
+        btnB.setEnabled(false);
+        btnC.setEnabled(false);
+        btnD.setEnabled(false);
     }
 
 

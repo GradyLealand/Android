@@ -138,4 +138,8 @@ public class QuizTools {
             return false;
         }
     }//end check correct
+
+    public int getCorrectAnswer() {
+        return correctAnswer;
+    }
 }
