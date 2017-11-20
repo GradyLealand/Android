@@ -19,6 +19,7 @@ import com.mobileapp.grady.photoviewer.dummy.DummyContent;
  * on handsets.
  */
 public class ItemDetailFragment extends Fragment {
+    //declare image view
     ImageView image;
     /**
      * The fragment argument representing the item ID that this fragment
@@ -59,7 +60,7 @@ public class ItemDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            image = rootView.findViewById(R.id.ivMain);
+            image = rootView.findViewById(R.id.ivDisplay);
             image.setImageResource(getResources().getIdentifier("com.mobileapp.grady.photoviewer:drawable/" + mItem.name, null, null));
 
         }
