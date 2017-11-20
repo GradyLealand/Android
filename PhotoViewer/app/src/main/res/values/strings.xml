@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">PhotoViewer</string>
     <string name="title_item_detail">Item Detail</string>
+    <string-array name="Pictures">
+        <item>1,apple</item>
+        <item>2,bee</item>
+        <item>3,castle</item>
+        <item>4,twobares</item>
+    </string-array>
 </resources>

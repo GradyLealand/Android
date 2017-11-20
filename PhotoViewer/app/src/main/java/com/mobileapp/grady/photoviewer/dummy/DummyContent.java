@@ -23,12 +23,10 @@ public class DummyContent {
      */
     public static final Map<String, DummyItem> ITEM_MAP = new HashMap<String, DummyItem>();
 
-    private static final int COUNT = 25;
-
-    static {
-        // Add some sample items.
-        for (int i = 1; i <= COUNT; i++) {
-            addItem(createDummyItem(i));
+    public static void buildItems(List<String> xml){
+        for(String s : xml){
+            String temp[] = s.split(",");
+            addItem(createDummyItem(temp[0], temp[1]));
         }
     }
 
@@ -37,8 +35,8 @@ public class DummyContent {
         ITEM_MAP.put(item.id, item);
     }
 
-    private static DummyItem createDummyItem(int position) {
-        return new DummyItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    private static DummyItem createDummyItem(String id, String name) {
+        return new DummyItem(id, name);
     }
 
     private static String makeDetails(int position) {
@@ -55,18 +53,16 @@ public class DummyContent {
      */
     public static class DummyItem {
         public final String id;
-        public final String content;
-        public final String details;
+        public String name;
 
-        public DummyItem(String id, String content, String details) {
+        public DummyItem(String id, String name) {
             this.id = id;
-            this.content = content;
-            this.details = details;
+            this.name = name;
         }
 
         @Override
         public String toString() {
-            return content;
+            return name;
         }
     }
 }

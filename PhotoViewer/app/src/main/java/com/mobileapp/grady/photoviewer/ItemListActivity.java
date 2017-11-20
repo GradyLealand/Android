@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.mobileapp.grady.photoviewer.dummy.DummyContent;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,6 +39,12 @@ public class ItemListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(DummyContent.ITEMS.isEmpty())
+        {
+            DummyContent.buildItems(Arrays.asList(getResources().getStringArray(R.array.Pictures)));
+        }
+
         setContentView(R.layout.activity_item_list);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -90,7 +97,7 @@ public class ItemListActivity extends AppCompatActivity {
         public void onBindViewHolder(final ViewHolder holder, int position) {
             holder.mItem = mValues.get(position);
             holder.mIdView.setText(mValues.get(position).id);
-            holder.mContentView.setText(mValues.get(position).content);
+            holder.mContentView.setText(mValues.get(position).name);
 
             holder.mView.setOnClickListener(new View.OnClickListener() {
                 @Override
