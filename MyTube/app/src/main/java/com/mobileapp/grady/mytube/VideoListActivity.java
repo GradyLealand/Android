@@ -52,7 +52,7 @@ public class VideoListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VideoListActivity.this, PopUp.Class));
+                startActivity(new Intent(VideoListActivity.this, PopUp.class));
             }
         });
 

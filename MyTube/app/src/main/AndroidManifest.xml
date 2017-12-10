@@ -28,6 +28,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.mobileapp.grady.mytube.VideoListActivity" />
         </activity>
+        
+        <activity android:name=".PopUp"
+            android:theme="@style/AppTheme.Popup"></activity>
     </application>
 
 </manifest>
