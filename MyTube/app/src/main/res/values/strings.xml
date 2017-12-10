@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MyTube</string>
     <string name="title_video_detail">Video Detail</string>
-    <string name="add_title">New Video URL</string>
+    <string name="add_title">New Trailer</string>
     <string name="add_btn">Add To Database</string>
+    <string name="add_name">Title:</string>
+    <string name="add_detail">Description:</string>
+    <string name="add_url">URL:</string>
 </resources>

@@ -17,7 +17,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String DATABASE_NAME = "video.db";
     public static final String TABLE_NAME = "videos";
     public static final String COL_1 = "id";
-    public static final String COL_2 = "link";
+    public static final String COL_2 = "name";
+    public static final String COL_3 = "link";
+    public static final String COL_4 = "details";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -27,7 +29,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table " + TABLE_NAME + " (" + COL_1  + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + COL_2 + " TEXT)");
+            + COL_2 + " TEXT " + COL_2 + " TEXT " + COL_2 + " TEXT)");
     }
 
     @Override
@@ -37,11 +39,13 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     //add a row to the database
-    public boolean insertData(String url)
+    public boolean insertData(String name, String url, String detail)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, url);
+        contentValues.put(COL_2, name);
+        contentValues.put(COL_3, url);
+        contentValues.put(COL_4, detail);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
         {
@@ -54,6 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     }
 
     //print the content of the database
+    //print coded made by Joel Veinotte
     public String printDB(){
 //        Log.d(TAG, "printDB called");
         SQLiteDatabase db = this.getWritableDatabase();

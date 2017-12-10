@@ -1,7 +1,6 @@
 package com.mobileapp.grady.mytube;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -17,7 +16,7 @@ import android.widget.Toast;
 
 public class PopUp  extends Activity {
 
-    private EditText etAddToDb;
+    private EditText etAddName, etAddURL, etAddDetail;
     private Button btnAddDb;
     private DatabaseHelper myDb;
 
@@ -25,7 +24,9 @@ public class PopUp  extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        etAddToDb = (EditText)findViewById(R.id.etAddURL);
+        etAddName = (EditText)findViewById(R.id.etAddName);
+        etAddURL = (EditText)findViewById(R.id.etAddURL);
+        etAddDetail = (EditText) findViewById(R.id.etAddDetail);
         btnAddDb = (Button)findViewById(R.id.btnAddURL);
         myDb = new DatabaseHelper(this);
 
@@ -52,7 +53,8 @@ public class PopUp  extends Activity {
         btnAddDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                boolean sucsses = myDb.insertData(etAddToDb.getText().toString());
+                boolean sucsses = myDb.insertData(etAddName.getText().toString(),
+                        etAddURL.getText().toString(), etAddDetail.getText().toString());
 
                 if (sucsses)
                 {
