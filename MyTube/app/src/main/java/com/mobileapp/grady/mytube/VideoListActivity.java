@@ -28,6 +28,7 @@ import java.util.List;
  * item details side-by-side using two vertical panes.
  */
 public class VideoListActivity extends AppCompatActivity {
+    DatabaseHelper myDb;
 
     /**
      * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -39,17 +40,19 @@ public class VideoListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_list);
+        myDb = new DatabaseHelper(this);
+        myDb.printDB();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle(getTitle());
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(VideoListActivity.this, PopUp.Class));
             }
         });
 
