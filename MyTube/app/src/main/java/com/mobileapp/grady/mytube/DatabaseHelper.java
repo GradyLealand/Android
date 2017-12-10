@@ -1,5 +1,6 @@
 package com.mobileapp.grady.mytube;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -35,6 +36,24 @@ public class DatabaseHelper extends SQLiteOpenHelper{
         onCreate(db);
     }
 
+    //add a row to the database
+    public boolean insertData(String url)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_2, url);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if(result == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    //print the content of the database
     public String printDB(){
 //        Log.d(TAG, "printDB called");
         SQLiteDatabase db = this.getWritableDatabase();
