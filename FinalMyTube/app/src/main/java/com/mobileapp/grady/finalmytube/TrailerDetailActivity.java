@@ -18,22 +18,40 @@ import com.google.android.youtube.player.YouTubePlayerView;
 
 public class TrailerDetailActivity extends YouTubeBaseActivity {
     public static final String TAG = "TrailerDetail:";
+    Button btnPlayTrailer;
+    String url = "";
+    String movieTitle = "";
+    String movieDiscription = "";
+    TextView tvTitle, tvDetail;
 
     YouTubePlayerView mYouTubePlayerView;
     YouTubePlayer.OnInitializedListener mOnInitializedListener;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_video_detail);
+        Bundle bundle = getIntent().getExtras();
+        url = bundle.getString("url");
+        movieTitle = bundle.getString("title");
+        movieDiscription = bundle.getString("detail");
+
         Log.d(TAG, "On create finished");
         mYouTubePlayerView = findViewById(R.id.YouTubePlayer);
+        btnPlayTrailer = (Button)findViewById(R.id.btnPlayVideo);
+        tvTitle = (TextView)findViewById(R.id.tvDetailTitle);
+        tvDetail = (TextView)findViewById(R.id.tvDetailDescription);
+
+        tvTitle.setText(movieTitle);
+        tvDetail.setText(movieDiscription);
 
 
         mOnInitializedListener = new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
-                youTubePlayer.loadVideo("5guMumPFBag");
+                youTubePlayer.loadVideo(url);
                 Log.d(TAG, "done Initializing");
             }
 
@@ -43,9 +61,7 @@ public class TrailerDetailActivity extends YouTubeBaseActivity {
             }
         };
 
-        Button btnPlay = (Button)findViewById(R.id.btnPlay);
-
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        btnPlayTrailer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Initializing player");

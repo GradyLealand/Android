@@ -20,8 +20,8 @@ public class DBAdapter
     private static final int DATABASE_VERSION = 2;
 
     private static final String DATABASE_CREATE =
-            "create table movies(_id integer primary key autoincrement,"
-                    + "title text not null,description text not null, path text not null);";
+            "create table " + DATABASE_TABLE + " (_id integer primary key autoincrement, "
+                    + "title text not null, description text not null, path text not null)";
 
     private final Context context;
     private DatabaseHelper DBHelper;
@@ -37,7 +37,7 @@ public class DBAdapter
     {
         DatabaseHelper(Context context)
         {
-            super(context,DATABASE_NAME,null,DATABASE_VERSION);
+            super(context,DATABASE_NAME,null,3);
         }
 
         public void onCreate(SQLiteDatabase db)
